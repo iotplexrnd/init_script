@@ -43,10 +43,10 @@ timedatectl set-timezone Asia/Seoul
 
 echo "===== 3. Run install scripts ====="
 
-bash "$BASE_DIR/scripts/directory.sh"
-bash "$BASE_DIR/scripts/install_docker.sh"
-bash "$BASE_DIR/scripts/install_node.sh"
-bash "$BASE_DIR/scripts/install_nginx.sh"
+bash "/tmp/iotstd_infra/bootstrap/directory.sh"
+bash "/tmp/iotstd_infra/bootstrap/install_docker.sh"
+bash "/tmp/iotstd_infra/bootstrap/install_node.sh"
+bash "/tmp/iotstd_infra/bootstrap/install_nginx.sh"
 
 echo "===== 4. Firewall ====="
 
