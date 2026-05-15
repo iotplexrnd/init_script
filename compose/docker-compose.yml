@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgis/postgis:18-3.6
+    container_name: postgres
+    env_file:
+      - ./postgis.env
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - network
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    env_file:
+      - ./redis.env
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    command: >
+      sh -c 'redis-server --requirepass "$$REDIS_PASSWORD"'
+    networks:
+      - network
+
+volumes:
+  postgres_data:
+
+networks:
+  network:
+    driver: bridge

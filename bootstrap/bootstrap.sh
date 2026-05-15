@@ -47,6 +47,7 @@ bash "/tmp/iotstd_infra/bootstrap/directory.sh"
 bash "/tmp/iotstd_infra/bootstrap/install_docker.sh"
 bash "/tmp/iotstd_infra/bootstrap/install_node.sh"
 bash "/tmp/iotstd_infra/bootstrap/install_nginx.sh"
+bash "/tmp/iotstd_infra/bootstrap/install_node_exporter.sh"
 
 echo "===== 4. Firewall ====="
 
